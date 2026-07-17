@@ -1,0 +1,90 @@
+.layout {
+   display: flex;
+    min-height: 100vh;
+    background: #f1f5f9;
+    width: 100%;       /* Ensure the layout takes full width */
+    overflow-x: hidden;
+}
+
+.main-content {
+   flex: 1;
+    padding: 30px;
+    transition: margin-left 0.3s ease;
+    width: 100%;      /* Ensure content takes full available width */
+    max-width: 100%;  /* CRITICAL: Prevents content from being wider than screen */
+    box-sizing: border-box;
+}
+
+.main-content.sidebar-open {
+    margin-left: 250px;
+}
+
+.main-content.sidebar-closed {
+    margin-left: 70px;
+}
+
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 1.5rem;
+    color: #64748b;
+}
+
+.mobile-menu-btn {
+    display: none;
+}
+
+.sidebar-backdrop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: fixed;
+        top: 14px;
+        left: 14px;
+        width: 44px;
+        height: 44px;
+        background: #1a1a2e;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.3rem;
+        z-index: 1002;
+        cursor: pointer;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    }
+
+    .sidebar-backdrop {
+        display: block;
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Sidebar is off-canvas by default on mobile, so content takes full width */
+    .main-content,
+    .main-content.sidebar-open,
+    .main-content.sidebar-closed {
+        margin-left: 0;
+        width: 100%;
+        max-width: 100%;
+        padding: 15px;
+        padding-top: 72px; /* leave room for the fixed hamburger button */
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content,
+    .main-content.sidebar-open,
+    .main-content.sidebar-closed {
+        padding: 12px;
+        padding-top: 68px;
+    }
+}
