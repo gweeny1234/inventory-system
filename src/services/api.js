@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost/inventory-backend/api";
-// const API_URL = "https://storeinventorysystem.infinityfreeapp.com/inventory-backend/api";
+// const API_URL = "http://localhost/inventory-backend/api";
+const API_URL = "https://storeinventorysystem.infinityfreeapp.com/inventory-backend/api";
 
 const api = axios.create({
     baseURL: API_URL,
