@@ -42,7 +42,7 @@ const LoginForm = () => {
                 });
 
                 if (result.success) {
-                    navigate('/');
+                    navigate('/dashboard');
                 } else {
                     setError(result.message || 'Login failed');
                 }
@@ -82,7 +82,7 @@ const LoginForm = () => {
             <div className="login-card">
 
                 <div className="login-header">
-                    <h1>📦 Inventory</h1>
+                    <h1>Log In </h1>
 
                     <div className="tab-buttons">
                         <button
@@ -114,7 +114,7 @@ const LoginForm = () => {
                     {!isLogin && (
                         <>
                             <div className="form-group">
-                                <label>👤 Firstname</label>
+                                <label>Firstname</label>
                                 <input
                                     type="text"
                                     name="firstname"
@@ -125,7 +125,7 @@ const LoginForm = () => {
                             </div>
 
                             <div className="form-group">
-                                <label>👤 Lastname</label>
+                                <label>Lastname</label>
                                 <input
                                     type="text"
                                     name="lastname"
@@ -138,7 +138,7 @@ const LoginForm = () => {
                     )}
 
                     <div className="form-group">
-                        <label>✉️ Email</label>
+                        <label>Email</label>
                         <input
                             type="email"
                             name="email"
@@ -149,7 +149,7 @@ const LoginForm = () => {
                     </div>
 
                     <div className="form-group">
-                        <label>🔒 Password</label>
+                        <label>Password</label>
                         <input
                             type="password"
                             name="password"

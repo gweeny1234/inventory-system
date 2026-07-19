@@ -35,39 +35,37 @@ const Dashboard = () => {
 
     return (
         <div className="dashboard">
-            <h1>Dashboard</h1>
-            
             <div className="stats-grid">
                 <div className="stat-card blue">
-                    <div className="stat-icon">📦</div>
-                    <div className="stat-info">
+                    <div className="stat-card-top">
                         <h3>Total Products</h3>
-                        <p>{stats.total_products}</p>
+                        <div className="stat-icon">📦</div>
                     </div>
+                    <p>{stats.total_products}</p>
                 </div>
                 
                 <div className="stat-card green">
-                    <div className="stat-icon">📊</div>
-                    <div className="stat-info">
+                    <div className="stat-card-top">
                         <h3>Total Stock</h3>
-                        <p>{stats.total_stock}</p>
+                        <div className="stat-icon">📊</div>
                     </div>
+                    <p>{stats.total_stock}</p>
                 </div>
                 
                 <div className="stat-card purple">
-                    <div className="stat-icon">🛒</div>
-                    <div className="stat-info">
+                    <div className="stat-card-top">
                         <h3>Total Orders</h3>
-                        <p>{stats.total_orders}</p>
+                        <div className="stat-icon">🛒</div>
                     </div>
+                    <p>{stats.total_orders}</p>
                 </div>
                 
                 <div className="stat-card orange">
-                    <div className="stat-icon">⚠️</div>
-                    <div className="stat-info">
+                    <div className="stat-card-top">
                         <h3>Reorder Needed</h3>
-                        <p>{stats.reorder_count}</p>
+                        <div className="stat-icon">⚠️</div>
                     </div>
+                    <p>{stats.reorder_count}</p>
                 </div>
             </div>
 

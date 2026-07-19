@@ -8,7 +8,7 @@
 
 .main-content {
    flex: 1;
-    padding: 30px;
+    padding: 24px 32px;
     transition: margin-left 0.3s ease;
     width: 100%;      /* Ensure content takes full available width */
     max-width: 100%;  /* CRITICAL: Prevents content from being wider than screen */
@@ -20,7 +20,7 @@
 }
 
 .main-content.sidebar-closed {
-    margin-left: 70px;
+    margin-left: 0;
 }
 
 .loading {
@@ -32,8 +32,25 @@
     color: #64748b;
 }
 
-.mobile-menu-btn {
-    display: none;
+/* Floating button that opens the sidebar whenever it is closed,
+   on both desktop and mobile */
+.menu-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    top: 14px;
+    left: 14px;
+    width: 44px;
+    height: 44px;
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.3rem;
+    z-index: 1002;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
 }
 
 .sidebar-backdrop {
@@ -41,25 +58,6 @@
 }
 
 @media (max-width: 768px) {
-    .mobile-menu-btn {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        position: fixed;
-        top: 14px;
-        left: 14px;
-        width: 44px;
-        height: 44px;
-        background: #1a1a2e;
-        color: white;
-        border: none;
-        border-radius: 8px;
-        font-size: 1.3rem;
-        z-index: 1002;
-        cursor: pointer;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    }
-
     .sidebar-backdrop {
         display: block;
         position: fixed;
@@ -68,7 +66,8 @@
         z-index: 999;
     }
 
-    /* Sidebar is off-canvas by default on mobile, so content takes full width */
+    /* Sidebar is off-canvas on mobile, so content takes full width
+       regardless of open/closed state */
     .main-content,
     .main-content.sidebar-open,
     .main-content.sidebar-closed {

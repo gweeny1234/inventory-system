@@ -87,18 +87,23 @@ const Suppliers = () => {
     return (
         <div className="products-page">
             <div className="page-header">
-                <h1>🚚 Suppliers</h1>
-                <button className="add-btn" onClick={() => openModal()}>+ Add Supplier</button>
-            </div>
+    <h1>Suppliers</h1>
 
-            <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="🔍 Search suppliers..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
+            <div className="header-actions">
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search suppliers..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
+
+                <button className="add-btn" onClick={() => openModal()}>
+                    + Add Supplier
+                </button>
             </div>
+        </div>
 
             <div className="table-container">
                 <table>
@@ -123,8 +128,8 @@ const Suppliers = () => {
                                 <td data-label="Phone">{sup.phone || '-'}</td>
                                 <td data-label="Products">{sup.product_count || 0}</td>
                                 <td data-label="Actions">
-                                    <button className="edit-btn" onClick={() => openModal(sup)}>✏️</button>
-                                    <button className="delete-btn" onClick={() => handleDelete(sup.id)}>🗑️</button>
+                                    <button className="edit-btn" onClick={() => openModal(sup)}>Edit</button>
+                                    <button className="delete-btn" onClick={() => handleDelete(sup.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

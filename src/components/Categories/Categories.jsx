@@ -109,19 +109,23 @@ const Categories = () => {
     return (
         <div className="products-page">
             <div className="page-header">
-                <h1>🏷️ Categories</h1>
-                <button className="add-btn" onClick={() => openModal()}>+ Add Category</button>
-            </div>
+    <h1>Categories</h1>
 
-            <div className="search-bar">
-                <input
-                    type="text"
-                    placeholder="🔍 Search categories..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                />
-            </div>
+            <div className="header-actions">
+                <div className="search-bar">
+                    <input
+                        type="text"
+                        placeholder="Search categories..."
+                        value={searchTerm}
+                        onChange={(e) => setSearchTerm(e.target.value)}
+                    />
+                </div>
 
+                <button className="add-btn" onClick={() => openModal()}>
+                    + Add Category
+                </button>
+                </div>
+             </div>
             <div className="table-container">
                 <table>
                     <thead>
@@ -141,8 +145,8 @@ const Categories = () => {
                                 <td data-label="Description">{cat.description || '-'}</td>
                                 <td data-label="Products">{cat.product_count || 0}</td>
                                 <td data-label="Actions">
-                                    <button className="edit-btn" onClick={() => openModal(cat)}>✏️</button>
-                                    <button className="delete-btn" onClick={() => handleDelete(cat.id)}>🗑️</button>
+                                    <button className="edit-btn" onClick={() => openModal(cat)}>Edit</button>
+                                    <button className="delete-btn" onClick={() => handleDelete(cat.id)}>Delete</button>
                                 </td>
                             </tr>
                         ))}

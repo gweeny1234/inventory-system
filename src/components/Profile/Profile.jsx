@@ -32,7 +32,7 @@ const Profile = () => {
 
     return (
         <div className="profile-page">
-            <h1>👤 User Profile</h1>
+            <h1>User Profile</h1>
             
             <div className="profile-card">
                 <div className="profile-header">

@@ -106,20 +106,23 @@ const ProductList = () => {
     return (
         <div className="products-page">
             <div className="page-header">
-                <h1>📦 Products</h1>
-                <button className="add-btn" onClick={() => openModal()}>
-                    + Add Product
-                </button>
-            </div>
+    <h1>Products</h1>
 
+    <div className="header-actions">
             <div className="search-bar">
                 <input
                     type="text"
-                    placeholder="🔍 Search products..."
+                    placeholder="Search products..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
                 />
             </div>
+
+                <button className="add-btn" onClick={() => openModal()}>
+                    + Add Product
+                </button>
+            </div>
+        </div>
 
             <div className="table-container">
                 <table>
@@ -147,10 +150,10 @@ const ProductList = () => {
                                 </td>
                                 <td data-label="Actions">
                                     <button className="edit-btn" onClick={() => openModal(product)}>
-                                        ✏️
+                                        Edit
                                     </button>
                                     <button className="delete-btn" onClick={() => handleDelete(product.id)}>
-                                        🗑️
+                                        Delete
                                     </button>
                                 </td>
                             </tr>

@@ -95,7 +95,7 @@ const Orders = () => {
     return (
         <div className="products-page">
             <div className="page-header">
-                <h1>🛒 Orders</h1>
+                <h1>Orders</h1>
                 <button className="add-btn" onClick={() => openModal()}>+ New Order</button>
             </div>
 

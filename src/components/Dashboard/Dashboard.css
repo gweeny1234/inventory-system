@@ -1,28 +1,37 @@
 .dashboard h1 {
     margin-bottom: 30px;
     color: #1a1a2e;
+    font-weight: 700;
+}
+
+.dashboard {
+    width: 100%;
 }
 
 .stats-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    width: 100%;
+    box-sizing: border-box;
+    gap: 18px;
     margin-bottom: 30px;
 }
 
 .stat-card {
     background: white;
-    border-radius: 12px;
-    padding: 25px;
+    border-radius: 14px;
+    padding: 26px 28px;
     display: flex;
-    align-items: center;
-    gap: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    transition: transform 0.3s ease;
+    flex-direction: column;
+    gap: 16px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef1f5;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .stat-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .stat-card.blue { border-left: 4px solid #3b82f6; }
@@ -30,38 +39,56 @@
 .stat-card.purple { border-left: 4px solid #8b5cf6; }
 .stat-card.orange { border-left: 4px solid #f97316; }
 
-.stat-icon {
-    font-size: 2.5rem;
+.stat-card-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
 }
 
-.stat-info h3 {
-    font-size: 0.9rem;
-    color: #64748b;
+.stat-card-top h3 {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
     margin: 0;
 }
 
-.stat-info p {
-    font-size: 2rem;
+.stat-card.blue h3 { color: #3b82f6; }
+.stat-card.green h3 { color: #22c55e; }
+.stat-card.purple h3 { color: #8b5cf6; }
+.stat-card.orange h3 { color: #f97316; }
+
+.stat-icon {
+    font-size: 1.8rem;
+    opacity: 0.35;
+    line-height: 1;
+}
+
+.stat-card p {
+    font-size: 2.4rem;
     font-weight: 700;
     color: #1a1a2e;
-    margin: 5px 0 0 0;
+    margin: 0;
 }
 
 .dashboard-sections {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 20px;
+    gap: 24px;
 }
 
 .section {
     background: white;
-    border-radius: 12px;
+    border-radius: 14px;
     padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border: 1px solid #eef1f5;
 }
 
 .section h2 {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    font-weight: 700;
     color: #1a1a2e;
     margin-bottom: 20px;
 }
@@ -135,6 +162,12 @@
     padding: 30px;
 }
 
+@media (max-width: 1100px) {
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .dashboard h1 {
         font-size: 1.5rem;
@@ -149,15 +182,15 @@
 
     .stat-card {
         padding: 15px;
-        gap: 12px;
+        gap: 10px;
     }
 
     .stat-icon {
-        font-size: 1.8rem;
+        font-size: 1.4rem;
     }
 
-    .stat-info p {
-        font-size: 1.4rem;
+    .stat-card p {
+        font-size: 1.5rem;
     }
 
     .dashboard-sections {

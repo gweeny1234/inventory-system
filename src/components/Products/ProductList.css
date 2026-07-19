@@ -2,7 +2,7 @@
     max-width: 100%;
     width: 100%;
     box-sizing: border-box;
-    padding: 0 15px; /* Added for mobile breathing room */
+    padding: 0 15px;
 }
 
 .page-header {
@@ -17,28 +17,20 @@
     margin: 0;
 }
 
-.add-btn {
-    padding: 12px 24px;
-    background: #1a1a2e;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background 0.3s ease;
+/* NEW */
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
-.add-btn:hover {
-    background: #16213e;
-}
-
+/* Search Bar */
 .search-bar {
-    margin-bottom: 20px;
+    margin-bottom: 0;
 }
 
 .search-bar input {
-    width: 100%;
-    max-width: 400px;
+    width: 320px;
     padding: 12px 20px;
     border: 2px solid #e2e8f0;
     border-radius: 8px;
@@ -50,13 +42,30 @@
     border-color: #1a1a2e;
 }
 
+/* Add Button */
+.add-btn {
+    padding: 12px 24px;
+    background: #1a1a2e;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-btn:hover {
+    background: #16213e;
+}
+
 .table-container {
     background: white;
     border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-    overflow-x: auto; /* Enables horizontal scrolling */
-    overflow-y: auto; /* Enables vertical scrolling instead of growing the page */
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    overflow-x: auto;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     width: 100%;
     max-width: 100%;
     max-height: 60vh;
@@ -89,7 +98,8 @@ table {
     min-width: 600px;
 }
 
-th, td {
+th,
+td {
     padding: 15px;
     text-align: left;
     border-bottom: 1px solid #e2e8f0;
@@ -112,7 +122,8 @@ tr:hover {
     font-weight: 600;
 }
 
-.edit-btn, .delete-btn {
+.edit-btn,
+.delete-btn {
     padding: 8px 12px;
     border: none;
     border-radius: 6px;
@@ -129,18 +140,20 @@ tr:hover {
     background: #fee2e2;
 }
 
-.edit-btn:hover, .delete-btn:hover {
+.edit-btn:hover,
+.delete-btn:hover {
     opacity: 0.8;
 }
 
-/* Modal Styles */
+/* Modal */
+
 .modal-overlay {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0,0,0,0.5);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -218,8 +231,8 @@ tr:hover {
 
 .modal-actions {
     display: flex;
-    gap: 10px;
     justify-content: flex-end;
+    gap: 10px;
     margin-top: 25px;
 }
 
@@ -242,40 +255,37 @@ tr:hover {
     font-weight: 500;
 }
 
+/* Responsive */
 
 @media (max-width: 768px) {
     .products-page {
         padding: 0 10px;
     }
 
-    .form-group input,
-    .form-group select,
-    .form-group textarea,
-    .search-bar input {
-        font-size: 16px; /* prevents iOS Safari from auto-zooming on focus */
-    }
-
     .page-header {
         flex-direction: column;
         align-items: stretch;
+    }
+
+    .header-actions {
+        flex-direction: column;
+        width: 100%;
         gap: 12px;
+    }
+
+    .search-bar,
+    .search-bar input,
+    .add-btn {
+        width: 100%;
+        max-width: 100%;
     }
 
     .page-header h1 {
         font-size: 1.4rem;
     }
 
-    .add-btn {
-        width: 100%;
-    }
-
-    .search-bar input {
-        max-width: 100%;
-    }
-
     .form-row {
-        grid-template-columns: 1fr; /* Stacks inputs vertically */
-        gap: 0;
+        grid-template-columns: 1fr;
     }
 
     .modal {
@@ -294,7 +304,6 @@ tr:hover {
     }
 }
 
-/* Card-style table for small screens instead of horizontal scrolling */
 @media (max-width: 600px) {
     .table-container {
         overflow-x: visible;
@@ -311,7 +320,10 @@ tr:hover {
         display: none;
     }
 
-    table, tbody, tr, td {
+    table,
+    tbody,
+    tr,
+    td {
         display: block;
         width: 100%;
     }
@@ -319,25 +331,17 @@ tr:hover {
     tbody tr {
         background: white;
         border-radius: 12px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         margin-bottom: 12px;
         padding: 5px 15px;
-    }
-
-    tbody tr:hover {
-        background: white;
     }
 
     td {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        gap: 12px;
         padding: 10px 0;
         border-bottom: 1px solid #f1f5f9;
-        text-align: right;
-        white-space: normal;
-        word-break: break-word;
     }
 
     td:last-child {
@@ -348,10 +352,8 @@ tr:hover {
         content: attr(data-label);
         font-weight: 600;
         color: #64748b;
-        font-size: 0.8rem;
         text-transform: uppercase;
-        text-align: left;
-        flex-shrink: 0;
+        font-size: 0.8rem;
     }
 
     td[data-label="Actions"] {

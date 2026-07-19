@@ -46,7 +46,7 @@ try {
     $stmt = $db->prepare($query);
 
     $hashedPassword = password_hash($data->password, PASSWORD_DEFAULT);
-    $role = isset($data->role) ? $data->role : 'customer';
+    $role = isset($data->role) ? $data->role : 'Staff';
 
     $stmt->bindParam(':firstname', $data->firstname, PDO::PARAM_STR);
     $stmt->bindParam(':lastname', $data->lastname, PDO::PARAM_STR);
