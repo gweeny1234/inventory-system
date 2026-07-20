@@ -1,7 +1,4 @@
 <?php
-// -------------------------------------------------------------
-// 1. CORS HEADERS (Allowing your actual React app ports)
-// -------------------------------------------------------------
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -25,24 +22,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// React might send DELETE requests either as DELETE or POST with a payload
 if ($_SERVER['REQUEST_METHOD'] !== 'DELETE' && $_SERVER['REQUEST_METHOD'] !== 'POST') {
     http_response_code(405);
     echo json_encode(["success" => false, "message" => "Method not allowed. Use DELETE or POST."]);
     exit();
 }
 
-// -------------------------------------------------------------
-// 2. DATABASE CONNECTION
-// -------------------------------------------------------------
+
 include_once '../../config/Database.php';
 
 $database = new Database();
 $db = $database->connect();
 
-// -------------------------------------------------------------
-// 3. READ INPUT AND DELETE SUPPLIER
-// -------------------------------------------------------------
+// delete
 $data = json_decode(file_get_contents("php://input"));
 
 if (empty($data->id)) {

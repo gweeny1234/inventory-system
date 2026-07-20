@@ -1,7 +1,4 @@
 <?php
-// -------------------------------------------------------------
-// 1. CORS HEADERS (Allowing your actual React app ports)
-// -------------------------------------------------------------
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -31,9 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
     exit();
 }
 
-// -------------------------------------------------------------
 // 2. DATABASE CONNECTION
-// -------------------------------------------------------------
 include_once '../../config/Database.php';
 
 $database = new Database();

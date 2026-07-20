@@ -1,7 +1,4 @@
 <?php
-// -------------------------------------------------------------
-// 1. CORS HEADERS (Same working setup as delete.php)
-// -------------------------------------------------------------
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -36,11 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'POST
     exit();
 }
 
-// -------------------------------------------------------------
-// 2. DATABASE CONNECTION (Using your working database)
-// -------------------------------------------------------------
+// Database info
 $host = "localhost";
-$db_name = "jen_inventory"; // <-- Change this to your working database!
+$db_name = "jen_inventory";
 $username = "root";        
 $password = "";            
 
@@ -56,9 +51,6 @@ try {
     exit();
 }
 
-// -------------------------------------------------------------
-// 3. RETRIEVE POST/PUT DATA AND UPDATE RECORD
-// -------------------------------------------------------------
 
 // Read the incoming JSON payload sent from React
 $input = json_decode(file_get_contents("php://input"), true);

@@ -1,8 +1,6 @@
 import { Link } from "react-router-dom";
 import "./landingPage.css";
 
-// Deterministic bar heights for the barcode / stock-level divider —
-// reads like a barcode at a glance, like a mini stock chart up close.
 const DIVIDER_BARS = Array.from({ length: 46 }).map((_, i) => ({
   height: Math.round(Math.abs(Math.sin(i * 0.55)) * 34 + 10),
   amber: i % 7 === 0,

@@ -1,7 +1,4 @@
 <?php
-// -------------------------------------------------------------
-// 1. CORS HEADERS (Allowing your actual React app ports)
-// -------------------------------------------------------------
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -31,20 +28,13 @@ if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'POST
     exit();
 }
 
-// -------------------------------------------------------------
-// 2. DATABASE CONNECTION
-// -------------------------------------------------------------
 include_once '../../config/Database.php';
 
 $database = new Database();
 $db = $database->connect();
 
-// -------------------------------------------------------------
-// 3. READ INPUT AND UPDATE SUPPLIER
-// -------------------------------------------------------------
 $data = json_decode(file_get_contents("php://input"));
 
-// Ensure the supplier ID and name are present
 if (empty($data->id) || empty($data->name)) {
     http_response_code(400);
     echo json_encode([
@@ -65,7 +55,7 @@ try {
     
     $stmt = $db->prepare($query);
 
-    // Provide safe fallbacks so empty fields don't throw warnings
+   
     $id = intval($data->id);
     $name = trim($data->name);
     $contact_person = isset($data->contact_person) ? trim($data->contact_person) : '';

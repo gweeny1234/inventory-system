@@ -2,7 +2,7 @@
    display: flex;
     min-height: 100vh;
     background: #f1f5f9;
-    width: 100%;       /* Ensure the layout takes full width */
+    width: 100%;      
     overflow-x: hidden;
 }
 
@@ -10,8 +10,8 @@
    flex: 1;
     padding: 24px 32px;
     transition: margin-left 0.3s ease;
-    width: 100%;      /* Ensure content takes full available width */
-    max-width: 100%;  /* CRITICAL: Prevents content from being wider than screen */
+    width: 100%;    
+    max-width: 100%;  
     box-sizing: border-box;
 }
 
@@ -32,8 +32,7 @@
     color: #64748b;
 }
 
-/* Floating button that opens the sidebar whenever it is closed,
-   on both desktop and mobile */
+
 .menu-toggle-btn {
     display: flex;
     align-items: center;
@@ -66,8 +65,7 @@
         z-index: 999;
     }
 
-    /* Sidebar is off-canvas on mobile, so content takes full width
-       regardless of open/closed state */
+   
     .main-content,
     .main-content.sidebar-open,
     .main-content.sidebar-closed {
@@ -75,7 +73,7 @@
         width: 100%;
         max-width: 100%;
         padding: 15px;
-        padding-top: 72px; /* leave room for the fixed hamburger button */
+        padding-top: 72px; 
     }
 }
 

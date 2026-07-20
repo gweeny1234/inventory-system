@@ -209,7 +209,6 @@
     }
 }
 
-/* Card-style tables on small screens, matching the rest of the app */
 @media (max-width: 600px) {
     .section table {
         min-width: 0;

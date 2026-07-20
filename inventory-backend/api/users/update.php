@@ -1,7 +1,5 @@
 <?php
-// -------------------------------------------------------------
-// 1. CORS HEADERS (Allowing your actual React app ports)
-// -------------------------------------------------------------
+
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -31,17 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] !== 'PUT' && $_SERVER['REQUEST_METHOD'] !== 'POST
     exit();
 }
 
-// -------------------------------------------------------------
-// 2. DATABASE CONNECTION
-// -------------------------------------------------------------
 include_once '../../config/Database.php';
 
 $database = new Database();
 $db = $database->connect();
 
-// -------------------------------------------------------------
-// 3. READ INPUT AND UPDATE USER
-// -------------------------------------------------------------
 $data = json_decode(file_get_contents("php://input"));
 
 if (empty($data->id)) {
@@ -51,7 +43,7 @@ if (empty($data->id)) {
 }
 
 try {
-    // Build dynamic query based on provided fields safely
+
     $fields = [];
     $params = [':id' => intval($data->id)];
 
@@ -71,7 +63,6 @@ try {
         $fields[] = "role = :role";
         $params[':role'] = trim($data->role);
     }
-    // Only update the password if the user actually typed a new one
     if (!empty($data->password)) {
         $fields[] = "password = :password";
         $params[':password'] = password_hash($data->password, PASSWORD_DEFAULT);
@@ -87,7 +78,7 @@ try {
     $stmt = $db->prepare($query);
 
     foreach ($params as $key => $value) {
-        // Use PARAM_INT for ID, PARAM_STR for everything else
+        
         if ($key === ':id') {
             $stmt->bindValue($key, $value, PDO::PARAM_INT);
         } else {

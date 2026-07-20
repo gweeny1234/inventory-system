@@ -25,23 +25,6 @@ const Categories = () => {
         }
         setLoading(false);
     };
-
-    // const handleSubmit = async (e) => {
-    //     e.preventDefault();
-    //     try {
-    //         if (editingCategory) {
-    //             await updateCategory({ ...formData, id: editingCategory.id });
-    //         } else {
-    //             await createCategory(formData);
-    //         }
-    //         fetchCategories();
-    //         closeModal();
-    //     } catch (error) {
-    //         alert('Failed to save category');
-    //     }
-    // };
-
-
     const handleSubmit = async (e) => {
     e.preventDefault();
 

@@ -14,7 +14,7 @@
     z-index: 1000;
 }
 
-/* Fully visible, on any screen size, when open */
+
 .sidebar.open {
     transform: translateX(0);
 }

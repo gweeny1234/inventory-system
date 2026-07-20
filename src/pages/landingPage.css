@@ -108,7 +108,7 @@ body {
     background: #e8ebf0;
 }
 
-/* ---------- Hero ---------- */
+/* hero */
 
 .hero {
     display: grid;
@@ -195,7 +195,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* ---------- Hero mock preview card ---------- */
+/* Hero mock preview card  */
 
 .hero-visual {
     position: relative;
@@ -274,7 +274,7 @@ body {
     font-weight: 600;
 }
 
-/* ---------- Barcode / stock-level divider (signature element) ---------- */
+/* Barcode / stock-level divider (signature element)  */
 
 .stock-divider {
     display: flex;
@@ -296,7 +296,7 @@ body {
     background: rgba(26, 26, 46, 0.35);
 }
 
-/* ---------- Features ---------- */
+/* Features */
 
 .features-intro {
     text-align: center;
@@ -366,7 +366,7 @@ body {
     line-height: 1.55;
 }
 
-/* ---------- Footer ---------- */
+/* Footer */
 
 footer {
     text-align: center;
@@ -383,8 +383,6 @@ footer .build-tag {
     color: rgba(255, 255, 255, 0.4);
     margin-top: 6px;
 }
-
-/* ---------- Responsive ---------- */
 
 @media (max-width: 900px) {
     .hero {

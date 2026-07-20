@@ -1,7 +1,4 @@
 <?php
-// -------------------------------------------------------------
-// CORS Headers (Same as your working categories configuration)
-// -------------------------------------------------------------
 $allowedOrigins = [
     "http://localhost:5173",
     "http://localhost:5175"
@@ -31,11 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     exit();
 }
 
-// -------------------------------------------------------------
 // Database Connection
-// -------------------------------------------------------------
 $host = "localhost";
-$db_name = "jen_inventory"; // <-- Make sure this is your actual working database name!
+$db_name = "jen_inventory"; 
 $username = "root";        
 $password = "";            
 
@@ -48,26 +43,22 @@ try {
     exit();
 }
 
-// -------------------------------------------------------------
+
 // Read Input and Insert Product
-// -------------------------------------------------------------
 $input = json_decode(file_get_contents("php://input"), true);
 
-// Retrieve input fields (make sure these match your React keys)
+// Retrieve input fields 
 $name = isset($input['name']) ? trim($input['name']) : null;
 $price = isset($input['price']) && $input['price'] !== '' ? floatval($input['price']) : 0.00;
 $stock = isset($input['stock']) && $input['stock'] !== '' ? intval($input['stock']) : 0;
 $category_id = isset($input['category_id']) && $input['category_id'] !== '' ? intval($input['category_id']) : null; 
 $supplier_id = isset($input['supplier_id']) && $input['supplier_id'] !== '' ? intval($input['supplier_id']) : null; 
 
-// Validate required fields
 if (!empty($name) && !empty($category_id) && !empty($supplier_id)) {
     try {
-        // Safe fallback: Does your table have a date_added column? We'll capture it just in case.
+        
         $date_added = isset($input['date_added']) ? trim($input['date_added']) : date('Y-m-d');
 
-        // Let's check if 'sku' column is actually in your table. 
-        // If your table does not have 'sku', we'll omit it from the INSERT query.
         $query = "INSERT INTO products (name, price, stock, category_id, supplier_id, date_added) 
                   VALUES (:name, :price, :stock, :category_id, :supplier_id, :date_added)";
                   
@@ -91,7 +82,6 @@ if (!empty($name) && !empty($category_id) && !empty($supplier_id)) {
             echo json_encode(["success" => false, "message" => "Failed to save product to database."]);
         }
     } catch (PDOException $e) {
-        // This will print the EXACT SQL error in the network console so we can see if any other columns are missing!
         http_response_code(500);
         echo json_encode([
             "success" => false, 

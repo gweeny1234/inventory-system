@@ -11,7 +11,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
     exit();
 }
 
-// ... your database connection and SELECT query code continues below ...
 
 include_once '../../config/Database.php';
 
