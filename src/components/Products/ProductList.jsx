@@ -135,7 +135,7 @@ const ProductList = () => {
                             <th>Product Name</th>
                             <th>Category</th>
                             <th>Supplier</th>
-                            <th>Price ($)</th>
+                            <th>Price (₱)</th>
                             <th>Stock</th>
                             <th>Actions</th>
                         </tr>
@@ -147,7 +147,7 @@ const ProductList = () => {
                                 <td data-label="Product Name">{product.name}</td>
                                 <td data-label="Category">{product.category_name || 'N/A'}</td>
                                 <td data-label="Supplier">{product.supplier_name || 'N/A'}</td>
-                                <td data-label="Price ($)">${parseFloat(product.price).toFixed(2)}</td>
+                                <td data-label="Price (₱)">₱ {parseFloat(product.price).toFixed(2)}</td>
                                 <td data-label="Stock" className={product.stock <= 10 ? 'stock-low' : ''}>
                                     {product.stock}
                                 </td>
@@ -208,7 +208,7 @@ const ProductList = () => {
                             </div>
                             <div className="form-row">
                                 <div className="form-group">
-                                    <label>Price ($)</label>
+                                    <label>Price (₱)</label>
                                     <input
                                         type="number"
                                         step="0.01"
