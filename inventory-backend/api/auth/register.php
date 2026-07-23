@@ -21,6 +21,7 @@ if (!filter_var($data->email, FILTER_VALIDATE_EMAIL)) {
 }
 
 if (strlen($data->password) < 6) {
+    // bad request
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Password must be at least 6 characters']);
     exit();
@@ -55,6 +56,7 @@ try {
     $stmt->bindParam(':role', $role, PDO::PARAM_STR);
 
     if ($stmt->execute()) {
+        // created
         http_response_code(201);
         echo json_encode([
             'success' => true,

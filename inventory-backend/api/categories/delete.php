@@ -76,6 +76,7 @@ if (!empty($id)) {
                     "message" => "Category was successfully deleted."
                 ]);
             } else {
+                // not found
                 http_response_code(404);
                 echo json_encode([
                     "success" => false,

@@ -12,6 +12,7 @@ $data = json_decode(file_get_contents("php://input"));
 
 // Validation
 if (empty($data->email) || empty($data->password)) {
+    // bad request
     http_response_code(400);
     echo json_encode(['success' => false, 'message' => 'Email and password are required']);
     exit();
@@ -32,6 +33,7 @@ try {
     $user = $stmt->fetch();
 
     if (!password_verify($data->password, $user['password'])) {
+        // unauthorized
         http_response_code(401);
         echo json_encode(['success' => false, 'message' => 'Invalid email or password']);
         exit();
@@ -40,6 +42,7 @@ try {
     // Remove password before sending back to frontend
     unset($user['password']);
 
+    // ok
     http_response_code(200);
     echo json_encode([
         'success' => true,
@@ -48,6 +51,7 @@ try {
     ]);
 
 } catch (PDOException $e) {
+    // internal server error
     http_response_code(500);
     echo json_encode(['success' => false, 'message' => 'Server error: ' . $e->getMessage()]);
 }
